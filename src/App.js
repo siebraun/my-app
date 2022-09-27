@@ -1,25 +1,37 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import RecipeSearch from "./components/RecipeSearch";
+import AnimLab from "./components/AnimLab";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+export default class App extends React.Component{
+  state = {
+    pages: [<RecipeSearch />, <AnimLab/>],
+    curPage: 0
+  };
+  
+  render(){
+    return (
+      <div className="App">
+        <h1>Welcome to React</h1>
+        <div>
+          <button onClick={() => {
+            this.swapProject(0);
+            }}>
+              Recipe Search
+          </button>
+          <button onClick={() => {
+            this.swapProject(1);
+            }}>
+              Animation Lab
+          </button>
+        </div>
+        {this.state.pages[this.state.curPage]}
+      </div>
+    );
+  }
+  
+  swapProject(projectIndex){
+    this.setState({ curPage: projectIndex});
+  }
 }
-
-export default App;
