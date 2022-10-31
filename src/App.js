@@ -1,37 +1,41 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import "./App.css";
 import RecipeSearch from "./components/RecipeSearch";
 import AnimLab from "./components/AnimLab";
+import Inventory from "./Inventory/Inventory";
 
-
-export default class App extends React.Component{
+export default class App extends React.Component {
   state = {
-    pages: [<RecipeSearch />, <AnimLab/>],
-    curPage: 0
+    pages: [<RecipeSearch />, <AnimLab />],
+    curPage: 0,
   };
-  
-  render(){
+
+  render() {
     return (
       <div className="App">
         <h1>Welcome to React</h1>
         <div>
-          <button onClick={() => {
-            this.swapProject(0);
-            }}>
-              Recipe Search
+          <button
+            onClick={() => {
+              this.swapProject(0);
+            }}
+          >
+            Recipe Search
           </button>
-          <button onClick={() => {
-            this.swapProject(1);
-            }}>
-              Animation Lab
+          <button
+            onClick={() => {
+              this.swapProject(1);
+            }}
+          >
+            Animation Lab
           </button>
         </div>
         {this.state.pages[this.state.curPage]}
       </div>
     );
   }
-  
-  swapProject(projectIndex){
-    this.setState({ curPage: projectIndex});
+
+  swapProject(projectIndex) {
+    this.setState({ curPage: projectIndex });
   }
 }
