@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import RecipeSearch from "./components/RecipeSearch";
 import AnimLab from "./components/AnimLab";
-import Inventory from "./Inventory/Inventory";
+import Inventory from "./Inventory/";
 
 export default class App extends React.Component {
   state = {
@@ -29,13 +29,13 @@ export default class App extends React.Component {
           >
             Animation Lab
           </button>
-          <button
+          {/* <button
             onClick={() => {
               this.swapProject(2);
             }}
           >
             Inventory Bag Lag Lab
-          </button>
+          </button> */}
         </div>
         {this.state.pages[this.state.curPage]}
       </div>
