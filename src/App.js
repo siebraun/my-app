@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import RecipeSearch from "./components/RecipeSearch";
 import AnimLab from "./components/AnimLab";
-import Inventory from "./inventory/Inventory";
+import Inventory from "./inventory/Inventory.js";
 import Map from "./map/Map";
 
 export default class App extends React.Component {
