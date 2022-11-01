@@ -1,25 +1,26 @@
 import React, { useState, useEffect } from "react";
-import { CSSTransition } from "react-transition-group";
-import "./styles.css";
-import Info from "./Info";
-import InventoryItem from "./IventoryItem";
+import InventoryItem from "./InventoryItem";
 import Bag from "./Bag";
 import { List, Modal, Grid } from "@material-ui/core";
+import "./inventory.css";
 
-export default function Iventory() {
+export default function Inventory() {
   const [items, setItems] = useState([]);
   const [selectedItem, selectItem] = useState({});
   const [showModal, setModalOpen] = useState(false);
-  const [selectedInventory, setSelectedInventory] = useState([]);
+  const [bagItems, setBagItems] = useState([]);
 
+  //on component mount.. load data
   useEffect(() => {
     fetch("data/items.json")
       .then((result) => result.json())
       .then((data) => {
+        //store data
         setItems(data);
       });
   }, []);
 
+  //create our invnetory list
   const itemsList = items.map((item) => (
     <InventoryItem
       key={item.id}
@@ -36,8 +37,6 @@ export default function Iventory() {
         onClose={() => {
           setModalOpen(false);
         }}
-        aria-labelledby="simple-modal-title"
-        aria-describedby="simple-modal-description"
       >
         <div id="infoBox">
           <h3>{selectedItem.name}</h3>
@@ -52,24 +51,29 @@ export default function Iventory() {
         </Grid>
         <Grid>
           <h2>Bag</h2>
-          <Bag items={selectedInventory} removeItem={removeItem} />
+          <Bag items={bagItems} removeItem={removeItem} />
         </Grid>
       </Grid>
     </div>
   );
 
-  function addItem(itemId) {
-    setSelectedInventory([...selectedInventory, items[itemId]]);
+  function removeItem(itemInd) {
+    //create a copy of bag items
+    const tempBag = [...bagItems];
+    //remove from the copied array the item at index
+    tempBag.splice(itemInd, 1);
+    //set that as our new array
+    setBagItems(tempBag);
   }
 
   function showInfo(itemId) {
+    //select the item to be shown -> put its information into a vairbale
     selectItem(items[itemId]);
+    //show the info
     setModalOpen(true);
   }
 
-  function removeItem(itemIndex) {
-    const tempInventory = [...selectedInventory];
-    tempInventory.splice(itemIndex, 1);
-    setSelectedInventory(tempInventory);
+  function addItem(itemId) {
+    setBagItems([...bagItems, items[itemId]]);
   }
 }
