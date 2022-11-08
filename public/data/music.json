@@ -1,0 +1,15 @@
+[
+  {
+    "id": 1,
+    "title": "Jobless Monday",
+    "artist": "Mitski",
+    "url": "./music/Mitski_Jobless_Monday.mp3"
+  },
+
+  {
+    "id": 2,
+    "title": "I Bet on Losing Dogs",
+    "artist": "Mitski",
+    "url": "./music/Mitski_I_Bet_on_Losing_Dogs.mp3"
+  }
+]

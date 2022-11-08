@@ -4,10 +4,17 @@ import RecipeSearch from "./components/RecipeSearch";
 import AnimLab from "./components/AnimLab";
 import Inventory from "./Inventory/Inventory.js";
 import Map from "./map/Map";
+import MusicPlayer from "./music/MusicPlayer";
 
 export default class App extends React.Component {
   state = {
-    pages: [<RecipeSearch />, <AnimLab />, <Inventory />, <Map />],
+    pages: [
+      <RecipeSearch />,
+      <AnimLab />,
+      <Inventory />,
+      <Map />,
+      <MusicPlayer />,
+    ],
     curPage: 0,
   };
 
@@ -50,6 +57,15 @@ export default class App extends React.Component {
             }}
           >
             Map Data
+          </button>
+
+          {/* music lab */}
+          <button
+            onClick={() => {
+              this.swapProject(4);
+            }}
+          >
+            Music Player
           </button>
         </div>
         {this.state.pages[this.state.curPage]}
