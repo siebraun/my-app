@@ -1,5 +1,5 @@
 import React from "react";
-import { ListItem, List, Slider } from "@material-ui/core";
+import { List, ListItem, Slider } from "@mui/material";
 
 export default function Bag(props) {
   const weight = props.items.reduce((totalWeight, item) => {

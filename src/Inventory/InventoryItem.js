@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, ListItem } from "@material-ui/core";
+import { Button, ListItem } from "@mui/material";
 
 export default function InventoryItem(props) {
   return (

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import InventoryItem from "./InventoryItem";
 import Bag from "./Bag";
-import { List, Modal, Grid } from "@material-ui/core";
+import { Grid, List, Modal } from "@mui/material";
 import "./inventory.css";
 
 export default function Inventory() {
