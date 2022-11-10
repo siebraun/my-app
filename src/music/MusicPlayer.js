@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import MusicList from "./MusicList";
 import PlayWidget from "./PlayWidget";
 import MusicVis from "./MusicVis";
@@ -35,7 +35,7 @@ export default function MusicPlayer(props) {
   //'class methods'
   function trackSelected(id) {
     //find that track
-    const foundTrack = tracks.find((track) => track.id == id);
+    const foundTrack = tracks.find((track) => track.id === id);
     //set it as the currently selected track - in this component
     setCurPlaying(foundTrack);
   }
